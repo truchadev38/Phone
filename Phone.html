@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NumeroPhone — Cambia de compañía rápido y fácil</title>
+  <style>
+    :root{
+      --bg:#f5f7fb;
+      --card:#ffffff;
+      --muted:#7b8594;
+      --accent:#0066ff;
+      --shadow: 0 10px 30px rgba(17,24,39,0.08);
+    }
+    body{
+      margin:0; font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+      background: linear-gradient(180deg, #eef4ff 0%, var(--bg) 100%);
+      display:flex; align-items:center; justify-content:center;
+      min-height:100vh; padding:32px;
+    }
+    .shell{ max-width:900px; width:100%; border-radius:16px; overflow:hidden; background:#fff; box-shadow:var(--shadow); display:grid; grid-template-columns:1fr 1fr; }
+    @media(max-width:768px){ .shell{grid-template-columns:1fr;} }
+    .welcome{ background:linear-gradient(180deg,#062255,#0066ff); color:#fff; padding:40px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
+    .welcome h1{ margin:0; font-size:28px; }
+    .welcome p{ margin:12px 0 24px; font-size:15px; max-width:420px; }
+    .welcome img{ max-width:320px; width:100%; margin:0 auto 20px; display:block; }
+    .btn{ background:#fff; color:#0057d9; padding:12px 18px; border-radius:12px; border:0; cursor:pointer; font-weight:700; box-shadow:0 4px 12px rgba(0,0,0,0.15); }
+    .card{ padding:32px; }
+    .hidden{ display:none; }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <!-- Bienvenida -->
+    <section id="welcomePanel" class="welcome">
+      <h1>NumeroPhone</h1>
+      <p>Cambia de compañía rápido y fácil en menos de 5 minutos.</p>
+    <img src="l.png" alt="Teléfonos móviles" />
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdv7rnYq16NER7_W0ipCvsKI2ePTJSF0Pw7XKHNtR6L9rMlcQ/viewform?usp=dialog" id="startBtn" class="btn" style="display:inline-block; text-align:center; text-decoration:none;">Inicio</a>
+  </div>
+
+  <script>
+    const startBtn = document.getElementById('startBtn');
+    const backBtn = document.getElementById('backBtn');
+    const welcomePanel = document.getElementById('welcomePanel');
+    const formPanel = document.getElementById('formPanel');
+
+    startBtn.addEventListener('click',()=>{
+      welcomePanel.classList.add('hidden');
+      formPanel.classList.remove('hidden');
+    });
+    backBtn.addEventListener('click',()=>{
+      formPanel.classList.add('hidden');
+      welcomePanel.classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>
